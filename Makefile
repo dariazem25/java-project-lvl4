@@ -10,6 +10,9 @@ install:
 run-dist:
 	./build/install/app/bin/app
 
+generate-migrations:
+	./gradlew generateMigrations
+
 run:
 	./gradlew run
 
