@@ -17,16 +17,19 @@ public final class Url extends Model {
     @WhenCreated
     private Instant createdAt;
 
+    public Url(String name2) {
+        this.name = name2;
+    }
 
     public long getId() {
-        return id;
+        return this.id;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public Instant getCreatedAt() {
-        return createdAt;
+        return this.createdAt;
     }
 }

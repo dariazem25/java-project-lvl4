@@ -7,8 +7,14 @@ build:
 install:
 	./gradlew install
 
-run-dist:
-	./build/install/app/bin/app
+start:
+	APP_ENV=development ./gradlew run
+
+install:
+	./gradlew install
+
+start-dist:
+	APP_ENV=production ./build/install/app/bin/app
 
 generate-migrations:
 	./gradlew generateMigrations
