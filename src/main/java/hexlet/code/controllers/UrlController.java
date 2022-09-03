@@ -9,8 +9,6 @@ import io.javalin.http.NotFoundResponse;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -47,14 +45,8 @@ public class UrlController {
     public static Handler createUrl = ctx -> {
         String url = ctx.formParam("url");
         URL validUrl;
-        Pattern pattern = Pattern.compile("^(http|https)://\\S.+\\.\\D{3}:(\\d{1,5}$)|(/\\S|.*$)");
-
         try {
             validUrl = new URL(url);
-            Matcher matcher = pattern.matcher(validUrl.toString());
-            if (!matcher.find()) {
-                throw new MalformedURLException();
-            }
         } catch (MalformedURLException e) {
             ctx.sessionAttribute("flash", "Некорректный URL");
             ctx.sessionAttribute("flash-type", "danger");

@@ -25,6 +25,12 @@ run:
 test:
 	./gradlew test
 
+report:
+	./gradlew jacocoTestReport
+
+check-updates:
+	./gradlew dependencyUpdates
+
 lint:
 	./gradlew checkstyleMain checkstyleTest
 
