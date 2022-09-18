@@ -20,6 +20,32 @@
             </tr>
             </tbody>
         </table>
+        <h2 class="mt-5">Проверки</h2>
+        <form th:action="@{/urls/{id}/checks(id=*{id})}" method="post">
+            <button type="submit" class="btn btn-primary">Запустить проверку</button>
+        </form>
+        <table class="table table-bordered tabled-hover mt-3">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Код ответа</th>
+                <th>title</th>
+                <th>h1</th>
+                <th>description</th>
+                <th>Дата проверки</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="urlCheck : ${urlChecks}" th:object="${urlCheck}">
+                <td th:text="${urlCheck.id}"></td>
+                <td th:text="${urlCheck.statusCode}"></td>
+                <td th:text="${urlCheck.title}"></td>
+                <td th:text="${urlCheck.h1}"></td>
+                <td th:text="${urlCheck.description}"></td>
+                <td th:text="${#temporals.format(urlCheck.createdAt, 'dd/MM/yyyy HH:mm')}"></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </section>
 </main>
