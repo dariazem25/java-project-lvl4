@@ -19,14 +19,18 @@
                         <td>
                             <a th:text="*{name}" th:href="@{/urls/{id}(id=*{getId()})}"></a>
                         </td>
-                        <td
-                            th:if="${not #lists.isEmpty(url.urlChecks)}"
-                            th:text="${#temporals.format(url.urlChecks[#lists.size(url.urlChecks)-1].createdAt,
-                            'dd/MM/yyyy HH:mm')}">
+                        <td>
+                            <span class="col-2"
+                                th:if="${not #lists.isEmpty(url.urlChecks)}"
+                                th:text="${#temporals.format(url.urlChecks[#lists.size(url.urlChecks)-1].createdAt,
+                                'dd/MM/yyyy HH:mm')}">
+                            </span>
                         </td>
-                        <td
-                            th:if="${not #lists.isEmpty(url.urlChecks)}"
-                            th:text="${url.urlChecks[#lists.size(url.urlChecks)-1].statusCode}">
+                        <td>
+                            <span class="col-2"
+                                th:if="${not #lists.isEmpty(url.urlChecks)}"
+                                th:text="${url.urlChecks[#lists.size(url.urlChecks)-1].statusCode}">
+                            </span>
                         </td>
                     </tr>
                 </tbody>
